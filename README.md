@@ -9,9 +9,12 @@ To use this project, you'll need:
 
 ## Usage
 
+git clone https://github.com/LayMui/react-app-typescript
+npm start 
+
+git clone https://github.com/LayMui/react-app-test-automation
 ```
 npm ci                  # installs the node modules
-npm run lint            # runs the code linter
 npm test                # executes the example tests and generates the report under ./target/site/serenity
 ```
 
