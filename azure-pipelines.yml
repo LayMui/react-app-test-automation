@@ -1,8 +1,8 @@
 resources: 
   pipelines:
-  - pipeline: 10
-    project: YAML
-    source: Testaaabbb
+  - pipeline: 1
+    project: mui_ume
+    source: LayMui.react-app-typescript
     branch: master  
     trigger:  
       enabled: true
