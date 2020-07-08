@@ -10,6 +10,8 @@ resources:
 pool:
   vmImage: 'ubuntu-latest'
  
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- script: |
+    npm install
+    npm test
+  displayName: 'npm install and test'
+ 
