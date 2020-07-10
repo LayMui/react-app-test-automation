@@ -1,12 +1,3 @@
-resources: 
-  pipelines:
-  - pipeline: 1
-    project: mui_ume
-    source: LayMui.react-app-typescript
-    branch: master  
-    trigger:  
-      enabled: true
- 
 pool:
   vmImage: 'ubuntu-latest'
 
