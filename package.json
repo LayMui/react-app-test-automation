@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cognitive-studio-test-automation.git"
+    "url": "git+https://github.com/react-app-test-automation.git"
   },
   "keywords": [
     "serenity-js",
