@@ -4,5 +4,10 @@ import { by } from 'protractor';
 export class TodoPage {
     static textInput     = Target.the('username input').located(by.id('todo-text'));
     static addButton     = Target.the('password input').located(by.id('addTodo-btn'));
-    static deleteButton  = Target.the('login button').located(by.id('delete-btn'));
+    static deleteButton = (todo: string) => 
+       // Target.the(`${todo} delete button`).located(by.css('`button[data-qa=delete-${todo}]`'));
+        Target.the(`${todo} delete button`).located(by.id('delete-btn'));
+
+    
 }
+

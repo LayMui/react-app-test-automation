@@ -12,5 +12,14 @@ steps:
     npm test
   displayName: 'npm install and test'
  
-
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: $(Build.SourcesDirectory)
+    contents: |
+      target/site/serenity/**
+    TargetFolder: $(Build.ArtifactStagingDirectory)
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: $(Build.ArtifactStagingDirectory)
+    artifactName: target-folder
  

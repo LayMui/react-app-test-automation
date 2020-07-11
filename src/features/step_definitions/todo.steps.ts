@@ -3,7 +3,7 @@ import { Actor, actorCalled, actorInTheSpotlight, engage } from '@serenity-js/co
 import { Navigate, isVisible } from '@serenity-js/protractor';
 import { Before, Given, Then, When } from 'cucumber';
 import {
-    Actors, EnterTodo
+    Actors, EnterTodo, RemoveTodo
 } from '../support/screenplay';
 import { TodoPage } from '../support/screenplay/app/pageObjects';
 
@@ -19,8 +19,17 @@ actorInTheSpotlight().attemptsTo(
     EnterTodo.of(todo),
 ));
 
-Then(/(?:he|she|they) is able to see the todo added$/, () =>
+Then(/(?:he|she|they) is able to see the todo "(.*)" added$/, (todo: string) =>
     actorInTheSpotlight().attemptsTo(
-        Ensure.that(TodoPage.deleteButton, isVisible()),
+        Ensure.that(TodoPage.deleteButton(todo), isVisible()),
 ));
 
+When(/(.*) remove her todo "(.*)"/, (actorName: string, todo: string) =>
+actorInTheSpotlight().attemptsTo(
+    RemoveTodo.of(todo),
+));
+
+Then(/(?:he|she|they) is able to see the todo "(.*)" removed$/, (todo: string) =>
+   actorInTheSpotlight().attemptsTo(
+        Ensure.that(TodoPage.addButton, isVisible()),
+));
