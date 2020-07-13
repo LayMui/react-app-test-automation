@@ -1,13 +1,15 @@
-import { Ensure } from '@serenity-js/assertions';
+import { Ensure, contain } from '@serenity-js/assertions';
 import { Actor, actorCalled, actorInTheSpotlight, engage } from '@serenity-js/core';
-import { Navigate, isVisible } from '@serenity-js/protractor';
+import { Navigate, isVisible, Text } from '@serenity-js/protractor';
 import { Before, Given, Then, When } from 'cucumber';
 import {
-    Actors, EnterTodo, RemoveTodo
+    Actors, EnterTodo, RemoveTodo,
 } from '../support/screenplay';
 import { TodoPage } from '../support/screenplay/app/pageObjects';
 
 Before(() => engage(new Actors()));
+
+const todoItemNames = Text.ofAll(TodoPage.todoList);
 
 Given(/^(.*) is at the todo url page$/, (actorName: string) =>
     actorCalled(actorName).attemptsTo(
@@ -21,7 +23,8 @@ actorInTheSpotlight().attemptsTo(
 
 Then(/(?:he|she|they) is able to see the todo "(.*)" added$/, (todo: string) =>
     actorInTheSpotlight().attemptsTo(
-        Ensure.that(TodoPage.deleteButton(todo), isVisible()),
+       Ensure.that(TodoPage.deleteButton(todo), isVisible()),
+       Ensure.that(todoItemNames, contain(todo)),
 ));
 
 When(/(.*) remove her todo "(.*)"/, (actorName: string, todo: string) =>
