@@ -50,39 +50,12 @@ exports.config = {
     },
 
     capabilities: {
-        browserName: 'chrome',
-
-        // see https://github.com/SeleniumHQ/selenium/wiki/DesiredCapabilities#loggingpreferences-json-object
-        loggingPrefs: {
-            browser: 'SEVERE' // "OFF", "SEVERE", "WARNING", "INFO", "CONFIG", "FINE", "FINER", "FINEST", "ALL".
-        },
-
-        chromeOptions: {
-            args: [
-                '--no-sandbox',
-                '--disable-infobars',
-                '--disable-dev-shm-usage',
-                '--disable-extensions',
-                '--log-level=3',
-                '--disable-gpu',
-                '--window-size=1920,1080',
-                '--incognito',
-            ].concat(isCI ? ['--headless'] : [])    // run in headless mode on the CI server
-        }
-     
+        browserName :'internet explorer',
+        ignoreProtectedModeSettings:true,
+        platform    :'ANY',
+        version     :'l1'
     },
 
-    
-/*
-    multiCapabilities: [{
-        'browserName': 'firefox'
-      }, {
-        'browserName': 'chrome'
-      }, {
-         'browserName': 'internet explorer',
-         'ignoreProtectedModeSettings': true
-      }]
-*/
-     
+         
      
 };
