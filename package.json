@@ -54,6 +54,7 @@
     "@serenity-js/cucumber": "^2.11.0",
     "@types/cucumber": "^6.0.1",
     "chromedriver": "^83.0.0",
-    "cucumber": "^6.0.5"
+    "cucumber": "^6.0.5",
+    "iedriver": "^3.14.2"
   }
 }
