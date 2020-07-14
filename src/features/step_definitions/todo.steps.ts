@@ -1,6 +1,6 @@
-import { Ensure, contain } from '@serenity-js/assertions';
+import { Ensure, contain, not } from '@serenity-js/assertions';
 import { Actor, actorCalled, actorInTheSpotlight, engage } from '@serenity-js/core';
-import { Navigate, isVisible, Text } from '@serenity-js/protractor';
+import { Navigate, isVisible, Text, Wait } from '@serenity-js/protractor';
 import { Before, Given, Then, When } from 'cucumber';
 import {
     Actors, EnterTodo, RemoveTodo,
@@ -34,5 +34,5 @@ actorInTheSpotlight().attemptsTo(
 
 Then(/(?:he|she|they) is able to see the todo "(.*)" removed$/, (todo: string) =>
    actorInTheSpotlight().attemptsTo(
-        Ensure.that(TodoPage.addButton, isVisible()),
+    Wait.until(TodoPage.deleteButton(todo), not(isVisible())),
 ));

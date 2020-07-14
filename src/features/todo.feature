@@ -17,7 +17,7 @@ Feature: todo management
 
     Examples:
       | todo |
-      | submit projectA |
+      | projectA |
 
   Scenario Outline: remove todo item
     In order to remove the list of todo item 
@@ -29,4 +29,4 @@ Feature: todo management
 
     Examples:
       | todo |
-      | submit projectA |
+      | projectA |
