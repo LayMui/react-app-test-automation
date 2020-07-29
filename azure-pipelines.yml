@@ -23,10 +23,10 @@ steps:
   inputs:
     sourceFolder: $(Build.SourcesDirectory)
     contents: |
-      target/site/serenity/**
+      **
     TargetFolder: $(Build.ArtifactStagingDirectory)
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: $(Build.ArtifactStagingDirectory)
-    artifactName: target-folder
+    artifactName: source-folder
  
