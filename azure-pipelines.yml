@@ -13,16 +13,19 @@ stages:
 
               - task: Bash@3
                 inputs:
-                    targetType: 'inline'
-                    script: |
-                      docker pull laymui/react-app-typescript:0.0.1.RELEASE
-                      docker run -d -p 3000:3000 laymui/react-app-typescript:0.0.1.RELEASE
-                      displayName: 'pull docker image and run container to start server'
- 
-                      npm install
-                      npm test
-                      displayName: 'npm install and test'
- 
+                  targetType: 'inline'
+                  script: |
+                    docker pull laymui/react-app-typescript:0.0.1.RELEASE
+                    docker run -d -p 3000:3000 laymui/react-app-typescript:0.0.1.RELEASE
+                    displayName: 'pull docker image and run container to start server'
+              - task: Bash@3
+                inputs:
+                  targetType: 'inline'
+                  script: |
+                    npm install
+                    npm test
+                    displayName: 'npm install and test'
+                   
               - task: CopyFiles@2
                 inputs:
                   sourceFolder: $(Build.SourcesDirectory)
