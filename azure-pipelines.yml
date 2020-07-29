@@ -23,8 +23,7 @@ stages:
                   script: |
                     npm install
                     npm test
-                    displayName: 'npm install and test'
-                   
+                  
               - task: CopyFiles@2
                 inputs:
                   sourceFolder: $(Build.SourcesDirectory)
