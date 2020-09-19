@@ -71,18 +71,5 @@ exports.config = {
         }
      
     },
-
-    
-/*
-    multiCapabilities: [{
-        'browserName': 'firefox'
-      }, {
-        'browserName': 'chrome'
-      }, {
-         'browserName': 'internet explorer',
-         'ignoreProtectedModeSettings': true
-      }]
-*/
-     
      
 };
