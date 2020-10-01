@@ -36,7 +36,7 @@ stages:
                   targetPath: $(Build.ArtifactStagingDirectory)
                   artifactName: test-source-folder
  
-        - job: create_test_reports_web
+        - job: create_test_reports_web_in_CI
           displayName: Create web with test reports
           pool:
             vmImage: 'ubuntu-latest'
